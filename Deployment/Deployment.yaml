@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hightech
+  name: hightech-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hightech
+  template:
+    metadata:
+      labels:
+        app: hightech
+    spec:
+      containers:
+      - image: andrewanter/hightech:v${BUILD_NUMBER}
+        name: hightech
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources: {}
