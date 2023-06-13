@@ -1,17 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
+  name: hightech-service
   labels:
-    app: myservice
-  name: myservice
+    app: hightech-service
 spec:
   ports:
   - name: hightechport
     port: 80
     protocol: TCP
     targetPort: 80
+  type: NodePort
   selector:
     app: hightech
-  type: NodePort
-status:
-  loadBalancer: {}
