@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hightech-service
+  namespace: hightech-website
   labels:
     app: hightech-service
 spec:
