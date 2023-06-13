@@ -8,5 +8,5 @@ spec:
     service:
       name: hightech-service
       port:
-        number: 80s
+        number: 8080
 ---
