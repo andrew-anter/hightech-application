@@ -1,6 +1,8 @@
 # HighTech Website
+## A static website website that is deployed through a Jenkins pipeline on a Kubernetes cluster. <br />
 
-A static website website that is deployed through a Jenkins pipeline on a Kubernetes cluster. <br />
+![hightech website screenshot](./images/hightech-website.png)
+
 You can find the website static template at: https://www.free-css.com/free-css-templates/page291/hightech. <br />
 The code for the infrastructure lies in this [repositroy](https://github.com/andrew-anter/hightech-app-Infrastructure/)
 
