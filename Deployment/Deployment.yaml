@@ -15,9 +15,15 @@ spec:
         app: hightech
     spec:
       containers:
-      - image: andrewanter/hightech:v${BUILD_NUMBER}
+      - image: andrewanter/hightech-website:v${BUILD_NUMBER}
         name: hightech
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-        resources: {}
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
