@@ -10,7 +10,7 @@ pipeline {
                     echo 'building...'
                     sh '''    
                         docker login -u ${USERNAME} -p ${PASSWORD}
-                        sudo docker build . -t andrewanter/hightech-website:v${BUILD_NUMBER}
+                        docker build . -t andrewanter/hightech-website:v${BUILD_NUMBER}
                         docker push andrewanter/hightech-website:v${BUILD_NUMBER}
                         echo ${BUILD_NUMBER} > ../build.txt
                     '''
