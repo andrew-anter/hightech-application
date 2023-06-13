@@ -34,6 +34,7 @@ pipeline {
                         withCredentials( [file(credentialsId: 'gcloud-serviceaccountkey', variable: 'serviceaccountkey' )] ) {
                             sh '''
                             gcloud auth activate-service-account jenkins-auth@hightech-website.iam.gserviceaccount.com --key-file=${serviceaccountkey} --project=hightech-website
+                            gcloud container clusters get-credentials hightech-website-gke --zone us-east1-b --project hightech-website
                             kubectl apply -f Deployment.yaml --kubeconfig ${KUBECONFIG}
                             '''
                         }
