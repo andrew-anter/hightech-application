@@ -30,9 +30,14 @@ pipeline {
                         mv Deployment/Deployment.yaml Deployment/Deployment.yaml.tmp
                         cat Deployment/Deployment.yaml.tmp | envsubst > Deployment/Deployment.yaml
                         rm -f Deployment/Deployment.yaml.tmp
-                        kubectl apply -f Deployment.yaml --kubeconfig ${KUBECONFIG}
-                        
                     '''
+                        withCredentials( [file(credentialsId: 'gcloud-serviceaccountkey', variable: 'serviceaccountkey' )] ) {
+                            sh '''
+                            gcloud auth activate-service-account jenkins-auth@hightech-website.iam.gserviceaccount.com --key-file=${serviceaccountkey} --project=hightech-website
+                            kubectl apply -f Deployment.yaml --kubeconfig ${KUBECONFIG}
+                            '''
+                        }
+                        
                     }
                 }   
             }
